@@ -1,0 +1,35 @@
+@use './abstracts/variables';
+@use './abstracts/mixins';
+@use './abstracts/normalize';
+@use './layout/header';
+@use './layout/home';
+@use './layout/glance';
+@use './layout/atomic';
+
+@media (max-width: 1344px) {
+    .atomic {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 426px) {
+    .header__center {
+        display: none;
+    }
+}
+
+@media (max-width: 382px) {
+    .achievement {
+        width: auto !important;
+    }
+
+    .home {
+        padding: 56px;
+
+        &__text {
+            display: none;
+        }
+    }
+
+    
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Porsche Website">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Porsche">
+    <meta property="og:description" content="Porsche Website">
+    <meta property="og:type" content="website">
+    <title>Week 1 SCSS</title>
+    <link rel="stylesheet" href="./scss/style.scss">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header__left">
+                <img src="./img/logo.png" alt="logo" class="logo">
+            </div>
+            <div class="header__center">
+                <nav class="nav">
+                    <ul class="nav__list">
+                        <li class="nav__list__item"><a href="#main-page" class="nav__list__item__link">Main Page</a></li>
+                        <li class="nav__list__item"><a href="#blog" class="nav__list__item__link">Blog</a></li>
+                        <li class="nav__list__item"><a href="#system" class="nav__list__item__link">System</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="header__right">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+        </header>
+        <main class="main" id="main-page">
+            <section class="home">
+                <h1 class="home__heading">Atomic Lite - Home</h1>
+                <p class="home__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate, saepe eos voluptate atque incidunt assumenda! Dolores porro suscipit, nesciunt ipsam odit accusamus id enim libero obcaecati a modi autem tempora?</p>
+            </section>
+            <section class="glance" id="blog">
+                <div class="glane__title-wrapper">
+                    <h2 class="glance__title">At a Glance</h2>
+                </div>
+                <div class="glance__achievements">
+                    <div class="achievement">
+                        <i class="fa-solid fa-rocket achievement__icon"></i>
+                        <div class="achievement__text-box">
+                            <p class="achievement__text1">Active Clients</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt dignissimos, deserunt perferendis qui corrupti fugiat?</p>
+                        </div>
+                    </div>
+                    <div class="achievement">
+                        <i class="fa-solid fa-calendar achievement__icon"></i>
+                        <div class="achievement__text-box">
+                            <p class="achievement__text2">Years Experience</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt dignissimos, deserunt perferendis qui corrupti fugiat?</p>
+                        </div>
+                    </div>
+                    <div class="achievement">
+                        <i class="fa-solid fa-trophy achievement__icon"></i>
+                        <div class="achievement__text-box">
+                            <p class="achievement__text3">Awards Win</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt dignissimos, deserunt perferendis qui corrupti fugiat?</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="atomic" id="system">
+                <h2 class="atomic__heading">Atomic Headline</h2>
+                <div class="atomic__cards">
+                    <div class="atomic__card">
+                        <i class="fa-regular fa-gem atomic__icon"></i>
+                        <h3 class="atomic__title">Atomic Feature</h3>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque, cumque!</p>
+                    </div>
+                    <div class="atomic__card">
+                        <i class="fa-regular fa-gem atomic__icon"></i>
+                        <h3 class="atomic__title">Atomic Feature</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, enim!</p>
+                    </div>
+                    <div class="atomic__card">
+                        <i class="fa-regular fa-gem atomic__icon"></i>
+                        <h3 class="atomic__title">Atomic Feature</h3>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, distinctio!</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

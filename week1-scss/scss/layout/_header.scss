@@ -1,0 +1,42 @@
+@use '../abstracts/variables';
+
+.header {
+    background-color: variables.$primary-color;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 34px 0;
+
+    &__left {
+        .logo {
+            width: 50px;
+            height: 70px;
+        }
+    }
+
+    &__center {
+        .nav__list {
+            display: flex;
+            justify-content: space-evenly;
+            list-style-type: none;
+            gap: 70px;
+
+            &__item {
+                &__link {
+                    text-decoration: none;
+                    color: #FFFFFF;
+                }
+            }
+        }
+    }
+
+    &__right {
+        .fa-solid {
+            color: #FFFFFF;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}

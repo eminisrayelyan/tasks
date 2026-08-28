@@ -1,0 +1,44 @@
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+@use '../abstracts/functions';
+
+.atomic {
+    padding-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 174px;
+
+    &__heading {
+        font-size: functions.scale-font-size(22px);
+    }
+
+    &__cards {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 50px;
+    }
+
+    &__card {
+        box-shadow: -2px 1px 5px 4px rgba(181,181,181,0.75);
+        width: 270px;
+        height: 200px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    &__icon {
+        color: variables.$icon-color;
+    }
+
+    &__title {
+        font-size: functions.scale-font-size(20px);
+    }
+
+    // $__title {
+    //     font-size: functions.scale-font-size(3px);
+    // }
+}
