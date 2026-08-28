@@ -6,6 +6,10 @@
 @use './layout/glance';
 @use './layout/atomic';
 
+html {
+    scroll-behavior: smooth;
+}
+
 @media (max-width: 1344px) {
     .atomic {
         gap: 1.25rem;
