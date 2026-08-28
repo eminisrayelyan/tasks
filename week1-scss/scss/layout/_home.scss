@@ -5,11 +5,17 @@
     background-repeat: no-repeat;
     background-position: bottom;
     background-attachment: fixed;
+
     @include mixins.flex-center;
+
     flex-direction: column;
-    gap: 20px;
+    gap: 1.25rem;
+
     height: 40%;
+
     color: #FFFFFF;
-    padding: 130px;
+
+    padding: 8.125rem;
+
     text-align: center;
 }

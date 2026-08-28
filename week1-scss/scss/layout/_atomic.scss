@@ -3,31 +3,31 @@
 @use '../abstracts/functions';
 
 .atomic {
-    padding-top: 10px;
+    padding-top: 0.625rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    gap: 174px;
+    gap: 10.875rem;
 
     &__heading {
-        font-size: functions.scale-font-size(22px);
+        font-size: functions.scale-font-size(1.375rem);
     }
 
     &__cards {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 50px;
+        gap: 3.125rem;
     }
 
     &__card {
-        box-shadow: -2px 1px 5px 4px rgba(181,181,181,0.75);
-        width: 270px;
-        height: 200px;
-        padding: 20px;
+        box-shadow: -0.125rem 0.0625rem 0.3125rem 0.25rem rgba(181, 181, 181, 0.75);
+        width: 16.875rem;
+        height: 12.5rem;
+        padding: 1.25rem;
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 1.25rem;
     }
 
     &__icon {
@@ -35,10 +35,6 @@
     }
 
     &__title {
-        font-size: functions.scale-font-size(20px);
+        font-size: functions.scale-font-size(1.25rem);
     }
-
-    // $__title {
-    //     font-size: functions.scale-font-size(3px);
-    // }
 }

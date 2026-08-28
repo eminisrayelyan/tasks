@@ -5,12 +5,12 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 34px 0;
+    padding: 2.125rem 0;
 
     &__left {
         .logo {
-            width: 50px;
-            height: 70px;
+            width: 3.125rem;
+            height: 4.375rem;
         }
     }
 
@@ -19,7 +19,7 @@
             display: flex;
             justify-content: space-evenly;
             list-style-type: none;
-            gap: 70px;
+            gap: 4.375rem;
 
             &__item {
                 &__link {

@@ -8,7 +8,7 @@
 
 @media (max-width: 1344px) {
     .atomic {
-        gap: 20px;
+        gap: 1.25rem;
     }
 }
 
@@ -25,11 +25,8 @@
 
     .home {
         padding: 56px;
-
         &__text {
             display: none;
         }
     }
-
-    
 }
