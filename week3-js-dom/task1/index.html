@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <form action="submit" method="POST" class="form">
+            <label for="name">Name:</label>
+            <input type="text" name="name" class="input-name" required>
+            <label for="surname">Name:</label>
+            <input type="text" name="surname" class="input-surname" required>
+            <label for="age">Age:</label>
+            <input type="number" name="age" max="80" min="18" class="age" required>
+            <button type="submit" class="button">Submit</button>
+        </form>
+
+        <button type="button" class="change-color button">Click to change color</button>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
