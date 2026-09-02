@@ -1,0 +1,93 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #F3F5FD;
+}
+
+.input {
+    background-color: #2283F7;
+    width: 266px;
+    height: 52px;
+    border-radius: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    color: #FFFFFF;
+    font-weight: 900;
+}
+
+
+.c-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 24px;
+    padding-bottom: 30px;
+}
+
+.button {
+    background-color: #D8DDF0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    color: #6E7691;
+    font-weight: 900;
+
+}
+
+.calculator {
+    background-color: #FFFFFF;
+    width: 290px;
+    height: 56%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    justify-content: flex-end;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+
+}
+
+.numbers-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 300px;
+    gap: 18px;
+}
+
+.plus, .mul, .division, .minus {
+    color: #D8DDF0
+}
+
+.plus {
+    background-color: #63DE77;
+}
+
+.mul {
+    background-color: #FFC804;
+}
+
+.division {
+    background-color: #2388FF;
+}
+
+.minus {
+    background-color: #F73F55;
+}
