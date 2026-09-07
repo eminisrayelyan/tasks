@@ -1,0 +1,25 @@
+.todo-form {
+    position: relative;
+}
+
+.input {
+    background-color: #EBEDEF;
+    border: none;
+    height: 34px;
+    width: 290px;
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.btn {
+    background-color: #FF643A;
+    border: none;
+    color: #FFFFFF;
+    height: 34px;
+    border-radius: 20px;
+    width: 90px;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+}
