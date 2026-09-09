@@ -6,7 +6,8 @@ import { useState, useRef } from "react";
 function App() {
   const ID = useRef(0);
   const [tasks, setTasks] = useState([]);
-
+  const [editText, setEditText] = useState('');
+ 
   function addTodo(inputValue) {
     if (inputValue === '') {
       alert("Please Write a Task Name");
@@ -20,6 +21,14 @@ function App() {
     };
 
     setTasks((prev) => [...prev, newTodo]);
+  }
+
+  function editTodo (id) {
+    tasks.forEach(task => {
+      if(task.id === id) {
+        setEditText(task.text);
+      }
+    })
   }
 
   function deleteTodo(id) {
@@ -46,7 +55,7 @@ function App() {
   return (
     <div className="todo-container">
       <h1>To Do</h1>
-      <TodoForm addTodo={addTodo}></TodoForm>
+      <TodoForm addTodo={addTodo} editText={editText || ''}></TodoForm>
       <div className="task-list">
         {tasks.map((item) => {
           return (
@@ -54,6 +63,7 @@ function App() {
               text={item.text}
               completed={item.completed}
               changeStatus={changeStatus}
+              editTodo={editTodo}
               deleteTodo={deleteTodo}
               id={item.id}
               key={item.id}

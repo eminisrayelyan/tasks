@@ -1,10 +1,14 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faXmark, faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import './TaskItem.css'
 
-function TaskItem({ text, completed, changeStatus, deleteTodo, id }) {
+function TaskItem({ text, completed, changeStatus, editTodo, deleteTodo, id }) {
     function handleOnChange(id) {
         changeStatus(id);
+    }
+
+    function handleEdit (id) {
+        editTodo(id);
     }
 
     function handleDelete(id) {
@@ -24,10 +28,11 @@ function TaskItem({ text, completed, changeStatus, deleteTodo, id }) {
             >
                 {text}
             </p>
-            {/* <FontAwesomeIcon 
+            <FontAwesomeIcon 
                 icon={faPenToSquare} 
                 className='edit'
-            /> */}
+                onClick={() => handleEdit(id)}
+            />
 
             <FontAwesomeIcon
                 className='delete'
