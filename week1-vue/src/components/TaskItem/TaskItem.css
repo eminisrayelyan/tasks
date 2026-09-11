@@ -1,0 +1,12 @@
+.task-name {
+    font-size: 20px;
+}
+
+.edit {
+    color: #FF643A;
+    cursor: pointer;
+}
+
+.delete {
+    color: red;
+}
