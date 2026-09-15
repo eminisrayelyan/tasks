@@ -1,5 +1,5 @@
 const form = document.querySelector('.form');
-
+const container = document.querySelector('.container');
 
 const colors = ['red', 'green', 'blue', 'yellow', 'purple'];
 
@@ -16,13 +16,14 @@ function handleSubmit(event) {
 
     const h1 = document.createElement('h1');
 
-    h1.innerHTML += inputName === `Welcome ${inputName.value} ${inputSurname.value} <br>`;
+    h1.style.textAlign = 'center';
 
-    h1.innerHTML += `your age is ${age.value}`
+    h1.innerHTML += `Welcome ${inputName.value} ${inputSurname.value} <br>`;
 
-    document.body.prepend(h1);
+    h1.innerHTML += `Your age is ${age.value}`;
+
+    container.prepend(h1);
 }
 
 
-form.addEventListener('submit', handleSubmit, {once: true})
-
+form.addEventListener('submit', handleSubmit, {once: true});
