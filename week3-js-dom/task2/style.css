@@ -51,7 +51,7 @@
 }
 
 .calculator {
-    background-color: #FFFFFF;
+    background-color: #faf9f9;
     width: 290px;
     height: 56%;
     display: flex;
@@ -81,7 +81,8 @@
 }
 
 .mul {
-    background-color: #FFC804;
+    background-color: #ff9204;
+    padding-top: 8px;
 }
 
 .division {
