@@ -7,11 +7,11 @@ import Home from './components/Home.vue';
 </script>
 
 <template>
-  <Header></Header>
+  <Header v-once></Header>
   <main>
     <RouterView></RouterView>
   </main>
-  <Footer></Footer>
+  <Footer v-once></Footer>
 </template>
 
 <style scoped>
