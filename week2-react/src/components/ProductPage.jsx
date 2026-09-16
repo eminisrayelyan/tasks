@@ -28,7 +28,7 @@ function ProductPage() {
         <div className="flex h-[100vh] justify-center  w-[100%] mt-[150px]">
             <div className="flex w-[60%] bg-[#FFFFFF] rounded-2xl h-[60%] items-center justify-between">
                <div className="h-[100%] w-[60%] flex items-center justify-center">
-                    <img src={product.images} alt={product.title} className="h-[274px] w-[274px] " />
+                    <img src={product.images[0]} alt={product.title} className="h-[274px] w-[274px] " />
                </div>
                <div className="flex flex-col gap-[14px] items-center">
                     <h2>{product.title}</h2>

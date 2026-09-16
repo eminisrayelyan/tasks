@@ -26,7 +26,7 @@ function ProductCard() {
             {products.map((product) => {
                 return (
                     <div className="product w-[400px] h-[730px] bg-[#FDFEFE] p-[20px] rounded-2xl flex flex-col gap-[70px]" key={product.id}>
-                        <img src={product.images} alt={product.title} />
+                        <img src={product.images[0]} alt={product.title} />
                         <div className="flex flex-col gap-[36px] flex-1">
                             <h3>{product.title}</h3>
                             <p>{product.description}</p> 
