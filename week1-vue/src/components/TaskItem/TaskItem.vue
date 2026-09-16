@@ -1,26 +1,38 @@
 <script setup>
-import './TaskItem.css'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
+
 const props = defineProps({
     task: Object
 })
 
 const emits = defineEmits(['deleteTask']);
-
-// function handleEdit (id) {
-//     emits('editTask', id);
-// }
-
-function handleDelete (task) {
+function handleDelete(task) {
     emits('deleteTask', task)
 }
 </script>
 
 <template>
-   <div>
-        {{  props.task.title }}
+    <div class="task">
+        {{ props.task.title }}
         <div>
-            <button @click="handleEdit(props.task)" class="edit">Edit</button>
-            <button @click="handleDelete(props.task.id)" class="delete">Del</button>
+            <FontAwesomeIcon :icon="faXmark" @click="handleDelete(props.task.id)" class="delete" />
         </div>
     </div>
 </template>
+
+<style scoped>
+.task-name {
+    font-size: 20px;
+}
+
+.edit {
+    color: #FF643A;
+
+}
+
+.delete {
+    color: red;
+    cursor: pointer;
+}
+</style>
