@@ -6,35 +6,48 @@ import { useState, useRef } from "react";
 function App() {
   const ID = useRef(0);
   const [tasks, setTasks] = useState([]);
-  const [editText, setEditText] = useState('');
- 
-  function addTodo(inputValue) {
+  const [inputValue, setInputValue] = useState('');
+  const [editingId, setEditingId] = useState(null);
+
+  function addTodo() {
+    const text = inputValue.trim();
+
     if (inputValue === '') {
       alert("Please Write a Task Name");
       return;
     }
-    
-    const newTodo = {
-      id: ++ID.current,
-      text: inputValue,
-      completed: false,
-    };
 
-    setTasks((prev) => [...prev, newTodo]);
+    if (editingId) {
+      setTasks(prev => {
+        return prev.map(task => {
+          return task.id === editingId ? { ...task, text } : task;
+        })
+      });
+    } else {
+      const newTodo = {
+        id: ++ID.current,
+        text: inputValue,
+        completed: false,
+      };
+
+      setTasks((prev) => [...prev, newTodo]);
+    }
+
+    setInputValue('');
+    setEditingId(null);
   }
 
-  function editTodo (id) {
-    tasks.forEach(task => {
-      if(task.id === id) {
-        setEditText(task.text);
-      }
-    })
+  function editTodo(id) {
+    const task = tasks.find(task => task.id === id);
+
+    setEditingId(id);
+    setInputValue(task.text);
   }
 
   function deleteTodo(id) {
     setTasks(tasks => {
       return tasks.filter(task => task.id !== id);
-    })
+    });
   }
 
   function changeStatus(id) {
@@ -55,7 +68,12 @@ function App() {
   return (
     <div className="todo-container">
       <h1>To Do</h1>
-      <TodoForm addTodo={addTodo} editText={editText || ''}></TodoForm>
+      <TodoForm
+        inputValue={inputValue}
+        setInputValue={setInputValue}
+        addTodo={addTodo}
+        isEditing={editingId}
+      />
       <div className="task-list">
         {tasks.map((item) => {
           return (
@@ -67,7 +85,7 @@ function App() {
               deleteTodo={deleteTodo}
               id={item.id}
               key={item.id}
-            ></TaskItem>
+            />
           );
         })}
       </div>
