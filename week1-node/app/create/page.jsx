@@ -6,6 +6,7 @@ import { useState } from "react";
 function create() {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
+    const [status, setStatus] = useState('pending');    
     const router = useRouter();
 
     async function handleSubmit(e) {
@@ -14,11 +15,12 @@ function create() {
         const response = await fetch('/api/tasks', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ title, description })
+            body: JSON.stringify({ title, description, status })
         })
 
         if (response.ok) {
             setTitle('');
+            setDescription('');
             router.push('/');
             router.refresh();
         }
@@ -31,6 +33,12 @@ function create() {
 
             <label htmlFor="description">Description:</label>
             <input className={styles.input} value={description} onChange={(e) => setDescription(e.target.value)} name='description' />
+
+            <label htmlFor="status">Status: </label>
+            <select className={styles.select} name="status" id="status" value={status} onChange={(e) => setStatus(e.target.value)}>
+                <option value="pending">Pending</option>
+                <option value="completed">Completed</option>
+            </select>
 
             <button className={styles.button} type="submit">Create</button>
         </form>

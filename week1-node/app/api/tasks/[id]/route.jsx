@@ -5,38 +5,25 @@ const filePath = path.join(process.cwd(), 'data/tasks.json');
 
 export async function PUT(req, { params }) {
     const { id } = await params;
-    const { title } = await req.json();
+    const { title, description, status } = await req.json();
 
-    if (typeof title !== 'string' || !title.trim()) {
-        return Response.json(
-            { error: 'Title is required' },
-            { status: 400 }
-        );
-    }
+    const fileContent = await fs.promises.readFile(filePath, 'utf8');
+    const tasks = JSON.parse(fileContent);
 
+    const task = tasks.find(item => String(item.id) === id);
 
-        const fileContent = await fs.promises.readFile(filePath, 'utf8');
-        const tasks = JSON.parse(fileContent);
+    task.title = title.trim();
+    task.description = description.trim();
+    task.status = status.trim();
 
-        const task = tasks.find(item => String(item.id) === id);
+    await fs.promises.writeFile(filePath, JSON.stringify(tasks), 'utf8');
 
-        if (!task) {
-            return Response.json(
-              { error: 'Task not found' },
-              { status: 404 }
-            );
-          }
-          
-          task.title = title.trim();
+    return Response.json(task);
+}
 
-        await fs.promises.writeFile(filePath, JSON.stringify(tasks), 'utf8');
-
-        return Response.json(task);
-    }
-
-export async function DELETE (req, { params }) {
+export async function DELETE(req, { params }) {
     const { id } = await params;
-    console.log('id', id);
+
     const fileContent = await fs.promises.readFile(filePath, 'utf8');
     const tasks = JSON.parse(fileContent);
 
@@ -44,10 +31,8 @@ export async function DELETE (req, { params }) {
 
     await fs.promises.writeFile(filePath, JSON.stringify(updatedTasks), 'utf8');
 
-    
-
     return Response.json(
-        { error: 'Task not found' },
+        { message: 'Task deleted successfully' },
         { status: 200 }
-      );
+    );
 }

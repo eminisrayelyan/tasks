@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
           <Link href='/' className={styles.link}>Home</Link>
           <Link href='/create' className={styles.link}>Create</Link>
         </nav>
-        <main>
+        <main className={styles.main}>
           { children }
         </main>
       </body>

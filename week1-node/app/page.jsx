@@ -9,7 +9,7 @@ async function Home() {
   return (
     <div className={style['task-wrapper']}>
       <h1>Tasks</h1>
-      <ul>
+      <ul className={style.list}>
         {tasks.map(task => (
           <TaskItem key={task.id} task={task}></TaskItem>
         )
