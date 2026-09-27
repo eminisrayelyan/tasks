@@ -1,0 +1,35 @@
+.body {
+    background-color: #99B9DD;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 30px;
+    font-weight: 700;
+    background-color: #fff;
+    height: 50px;
+    border-radius: 10px;
+    margin-top: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.main {
+    margin-top: 50px;
+}
+
+.link {
+    text-decoration: none;
+    color: darkred;
+    transition: all 0.1s;
+}
+
+.link:hover {
+    opacity: 0.7;
+    
+}
+
+
+  

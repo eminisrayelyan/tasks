@@ -1,0 +1,44 @@
+.list-item {
+    font-size: 26px;
+    font-weight: 700;
+    list-style-type: none;
+    width: 100%;
+    background-color: #FFFFFF;
+    height: 70px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+    color: #000637;
+}
+
+
+.input {
+    height: 30px;
+    border: none;
+    width: 200px;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.buttons-wrapper {
+    display: flex;
+    gap: 10px;
+}
+
+.button {
+    all: unset;
+    font-size: 20px;
+}
+
+.button:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.delete {
+    color: darkred;
+}
+
