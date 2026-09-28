@@ -1,13 +1,9 @@
 import style from './page.module.css'
-import fs from 'fs'
-import path from 'path'
 import TaskItem from './components/TaskItem';
 
 async function Home() {
-  const filePath = path.join(process.cwd(), 'data', 'tasks.json');
-  const content = await fs.promises.readFile(filePath, 'utf8');
-  const tasks = JSON.parse(content);
-
+  const response = await fetch('http://localhost:3000/api/tasks');
+  const tasks = await response.json();
 
   return (
     <div className={style['task-wrapper']}>

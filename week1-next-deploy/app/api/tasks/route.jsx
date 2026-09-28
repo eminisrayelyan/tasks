@@ -1,4 +1,4 @@
-import fs, { stat } from 'fs';
+import fs from 'fs';
 import path from 'path';
 import { randomUUID } from 'crypto';
 
@@ -8,10 +8,16 @@ export async function POST(req) {
     const { title, description, status } = await req.json();
     const newTask = {
         id: randomUUID(),
-        title: title,
-        description: description,
+        title: title.trim(),
+        description: description.trim(),
         status: status,
-        date: (new Date()).toString()
+        createdAt: (new Date()).toString()
+    }
+
+    if (!title) {
+        return new Response(null, {
+            status: 404,
+        });
     }
 
     const fileContent = await fs.promises.readFile(filePath, 'utf8');

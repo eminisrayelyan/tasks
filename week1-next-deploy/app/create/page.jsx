@@ -6,28 +6,38 @@ import { useState } from "react";
 function create() {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
-    const [status, setStatus] = useState('pending');    
+    const [status, setStatus] = useState('pending');
+    const [error, setError] = useState('');
     const router = useRouter();
 
     async function handleSubmit(e) {
         e.preventDefault();
+        setError('');
 
-        const response = await fetch('/api/tasks', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ title, description, status })
-        })
+        try {
+            const response = await fetch('/api/tasks', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ title, description, status })
+            });
 
-        if (response.ok) {
-            setTitle('');
-            setDescription('');
-            router.push('/');
-            router.refresh();
+            if (response.ok) {
+                setTitle('');
+                setDescription('');
+                router.push('/');
+                router.refresh();
+            } else {
+                const data = await response.json();
+                setError(data.error);
+            }
+        } catch {
+            setError('Wrong Operation')
         }
     }
 
     return (
         <form className={styles.form} onSubmit={handleSubmit}>
+            {error && <p>{error}</p>}
             <label htmlFor="title">Task:</label>
             <input className={styles.input} value={title} onChange={(e) => setTitle(e.target.value)} name='title' />
 
