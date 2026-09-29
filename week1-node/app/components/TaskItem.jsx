@@ -60,9 +60,10 @@ function TaskItem({ task }) {
                         </select>
                     </div>
                 ) : (
-                    <div>
-                        <div className={style['list-item']}>{task.title}</div>
-                        <div>{task.description}</div>
+                    <div className={style['task-info']}>
+                        <h2 className={style.title}>{task.title}</h2>
+                        <p className={style.description}>{task.description}</p>
+                        <div className={style.status}>{task.status}</div>
                     </div>
 
                 )

@@ -4,7 +4,7 @@
     list-style-type: none;
     width: 100%;
     background-color: #FFFFFF;
-    height: 70px;
+    height: 90px;
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
@@ -13,6 +13,19 @@
     color: #000637;
 }
 
+.title {
+    font-size: 28px;
+}
+
+.description {
+    color: gray;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.status {
+    font-size: 20px;
+}
 
 .input {
     height: 30px;
