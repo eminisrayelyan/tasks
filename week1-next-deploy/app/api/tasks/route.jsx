@@ -33,11 +33,21 @@ export async function POST(req) {
     });
 }
 
-export async function GET() {
+export async function GET(req) {
+    const status = req.nextUrl.searchParams.get('status');
     const tasks = await fs.promises.readFile(filePath, 'utf8');
+    
+    if(!status) {
+        return new Response(tasks, {
+            status: 200,
+            headers: { 'Content-Type': 'application/json' }
+        })
+    }
 
-    return new Response(tasks, {
+    const filteredTasks = JSON.parse(tasks).filter(tasks => tasks.status === status);
+    return Response.json(filteredTasks, {
         status: 200,
         headers: { 'Content-Type': 'application/json' }
     })
+    
 }
