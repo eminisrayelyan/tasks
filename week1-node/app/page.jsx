@@ -1,9 +1,11 @@
 import style from './page.module.css'
 import TaskItem from './components/TaskItem';
+import { pool } from "../lib/db";
+export const dynamic = "force-dynamic";
 
 async function Home() {
-  const response = await fetch('http://localhost:3000/api/tasks');
-  const tasks = await response.json();
+  const result = await pool.query("SELECT * FROM tasks ORDER BY id");
+  const tasks = result.rows;
 
   return (
     <div className={style['task-wrapper']}>
