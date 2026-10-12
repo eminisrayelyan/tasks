@@ -5,7 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "db:migrate": "node --env-file=.env.local scripts/migrate.cjs",
+    "db:migrate:up": "node --env-file=.env.local scripts/migrate.cjs",
+    "db:seed": "node --env-file=.env.local scripts/seed.cjs"
   },
   "dependencies": {
     "next": "16.3.5",

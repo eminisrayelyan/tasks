@@ -10,6 +10,7 @@ export async function POST(req) {
     title,
     description = "",
     status = "pending",
+    categoryIds = [],
   } = await req.json();
 
   if (!title) {
@@ -18,14 +19,36 @@ export async function POST(req) {
     });
   }
 
-  const result = await pool.query(
-    `INSERT INTO tasks (title, description, status, user_id)
-     VALUES ($1, $2, $3, $4)
-     RETURNING *`,
-    [title.trim(), description.trim(), status, 5]
-  );
+  const client = await pool.connect();
 
-  return Response.json(result.rows[0], { status: 201 });
+  try {
+    await client.query('BEGIN');
+
+    const result = await client.query(
+      `INSERT INTO tasks (title, description, status, user_id)
+       VALUES ($1, $2, $3, $4)
+       RETURNING *`,
+      [title.trim(), description.trim(), status, 5]
+    );
+
+    const task = result.rows[0];
+
+    for (const categoryId of categoryIds) {
+      await client.query(
+        `INSERT INTO task_categories (task_id, category_id)
+         VALUES ($1, $2) ON CONFLICT DO NOTHING`,
+        [task.id, categoryId]
+      );
+    }
+
+    await client.query('COMMIT');
+    return Response.json(task, { status: 201 });
+  } catch {
+    await client.query('ROLLBACK');
+    return Response.json({ error: 'Could not create task.' }, { status: 500 });
+  } finally {
+    client.release();
+  }
 }
 
 // export async function POST(req) {
