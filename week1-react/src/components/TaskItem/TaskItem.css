@@ -1,0 +1,25 @@
+input {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #EBEDEF;
+    border-radius: 50%;
+    cursor: pointer;
+}
+  
+input:checked {
+    background-color: #EBEDEF;
+}
+
+.task-name {
+    font-size: 20px;
+}
+
+.edit {
+    color: #FF643A;
+    cursor: pointer;
+}
+
+.delete {
+    color: red;
+}

@@ -1,0 +1,60 @@
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+
+.glance {
+    background-color: variables.$secondary-color;
+    color: #FFFFFF;
+    font-weight: 200;
+    @include mixins.flex-center;
+    flex-wrap: wrap;
+    gap: 3.375rem;
+    padding: 1.25rem;
+
+    &__achievements {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .achievement {
+            display: flex;
+            gap: 1.25rem;
+            width: 26.625rem;
+
+            &__icon {
+                color: variables.$icon-color;
+                padding-top: 0.5rem;
+                font-size: 2.5rem;
+            }
+
+            &__text1,
+            &__text2,
+            &__text3 {
+                font-size: 1.25rem;
+            }
+
+            &__text1 {
+                &::before {
+                    content: '350';
+                    font-size: 3rem;
+                    padding-right: 0.625rem;
+                }
+            }
+
+            &__text2 {
+                &::before {
+                    content: '25';
+                    font-size: 3rem;
+                    padding-right: 0.625rem;
+                }
+            }
+
+            &__text3 {
+                &::before {
+                    content: '70';
+                    font-size: 3rem;
+                    padding-right: 0.625rem;
+                }
+            }
+        }
+    }
+}
